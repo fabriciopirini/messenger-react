@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import 'bulma'
 
 import 'bulma-helpers/css/bulma-helpers.min.css'
 import './App.css'
 
-import FriendsList from './FriendsList'
 import Conversation from './Conversation'
+import FriendsList from './FriendsList'
 
-class App extends React.Component {
+class App extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
       talkingTo: 'Friend1',
       textField: '',
-      history: {
-        Friend1: ['Are you going tonight?', 'Hey, are you there?'],
-        Friend2: ['Morning, how are you?'],
-        Friend3: ['Hi', 'Sure', 'But I will be late'],
-        NotFriend4: ['Who are you?']
-      }
+      friends: ['Friend1', 'Friend2', 'Friend3', 'NotFriend4'],
+      newHistory: [
+        ['Friend1', 'User', 'Are you going tonight?'],
+        ['Friend2', 'User', 'Morning, how are you?'],
+        ['NotFriend4', 'User', 'Who dis?'],
+        ['Friend3', 'User', 'Hi'],
+        ['Friend3', 'User', 'Sure'],
+        ['Friend3', 'User', 'But I will be late'],
+        ['Friend1', 'User', 'Hey, are you there?']
+      ]
     }
   }
 
@@ -38,11 +42,12 @@ class App extends React.Component {
     this.setState((state, props) => {
       const newState = {
         ...state,
-        history: {
-          ...state.history,
-          [state.talkingTo]: [...state.history[state.talkingTo], state.textField]
-        }
+        newHistory: [
+          ...state.newHistory,
+          ['User', state.talkingTo, state.textField]
+        ]
       }
+
       return newState
     })
   }
@@ -53,11 +58,11 @@ class App extends React.Component {
         <div className='tile is-vertical is-12'>
           <div className='tile'>
             <FriendsList
-              friends={this.state.history}
+              friends={this.state.friends}
               handleFriendChange={this.onHandleFriendChange}
             />
             <Conversation
-              messages={this.state.history[this.state.talkingTo]}
+              messages={this.state.newHistory}
               friend={this.state.talkingTo}
               handleTypingMessage={this.onHandleTypingMessage}
               handleSubmitMessage={this.onHandleSubmitMessage}

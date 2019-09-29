@@ -1,10 +1,9 @@
 import React from 'react'
 
-import MessageList from './MessageList'
 import MessageInput from './MessageInput'
+import MessageList from './MessageList'
 
-const Conversation = props => {
-  const { messages, friend, handleTypingMessage, handleSubmitMessage } = props
+const Conversation = ({ messages, friend, handleTypingMessage, handleSubmitMessage }) => {
   return (
     <div className='tile is-parent is-vertical'>
       <MessageList messages={messages} friend={friend} />

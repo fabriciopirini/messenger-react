@@ -1,13 +1,11 @@
 import React from 'react'
 
-const FriendsList = props => {
-  const { friends, handleFriendChange } = props
-
+const FriendsList = ({ friends, handleFriendChange }) => {
   return (
     <div className='tile is-parent is-3'>
       <div className='tile is-child box'>
         <p className='title'>Online friends</p>
-        {Object.keys(friends).map(friend => (
+        {friends.map(friend => (
           <div className='card has-margin-bottom-5' key={friend} onClick={() => handleFriendChange(friend)}>
             <div className='card-content'>
               <div className='media'>

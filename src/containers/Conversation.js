@@ -1,7 +1,7 @@
 import React from 'react'
 
-import MessageInput from './MessageInput'
-import MessageList from './MessageList'
+import MessageInput from '../components/MessageInput'
+import MessageList from '../components/MessageList'
 
 const Conversation = ({ messages, friend, handleTypingMessage, handleSubmitMessage }) => {
   return (

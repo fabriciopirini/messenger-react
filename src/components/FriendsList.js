@@ -4,7 +4,7 @@ const FriendsList = ({ friends, handleFriendChange }) => {
   return (
     <div className='tile is-parent is-3'>
       <div className='tile is-child box'>
-        <p className='title'>Online friends</p>
+        <p className='title'>Contacts</p>
         {friends.map(friend => (
           <div className='card has-margin-bottom-5' key={friend} onClick={() => handleFriendChange(friend)}>
             <div className='card-content'>

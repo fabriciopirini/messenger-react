@@ -1,18 +1,29 @@
-# Cognite interview workspace
+# Simple React Messenger
 
-This boilerplate is provided for candidates before interviews so we can spend as much time as possible doing interesting stuff in the interview.
+This is a simple project as part of Cognite interview process. React Messenger has basic functionality as: 
+- Sending message to different friends;
+- Be able to check messages' history for each friend.
 
-If you prefer to set up something on your own, feel free to do so.
-We don't require you to use React, but make sure that your enviroment is set up and ready to go.
+Future functionalities not implemented in this version:
+- Persisting chat history through page reloads;
+- Talking to a backend;
+- Multiple users.
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Improvements if had more time:
+- Typechecking with PropTypes;
+- Save timestamp for each message;
+- Rewrite code using React Hooks and React Context to make it simpler, smaller and remove props drilling. React Context, especially, would make more sense as the application grow;
+- Improve/fix a few UI inconsistences (MessageList grows as the number of messages increase, MessageInput should be fixed at the bottom, visual feedback for current selected contact);
+- Improve UX/Accessibility (Send message when hit ENTER, move through page using TAB);
+- Create a simple Dockerfile to containerize the application.
 
-## Preparing for the interview
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [Bulma](https://react-bulma.dev/en/).
 
-Set this up on your local machine and make sure that you can run the application.  
+## Running
+
 Running `npm start` should show you a working application on [http://localhost:3000](http://localhost:3000)  
 This should reload automatically with any changes you make.
 
-Running `npm test` should run tests from all files of the form `*.test.js`
+## Tests
 
-Feel free to add any tooling you want, and make sure that your editor is set up for you to work efficiently.
+No tests were implemented due to the limited time. Normally, I would create a project using TDD and writing a small test before creating each component.

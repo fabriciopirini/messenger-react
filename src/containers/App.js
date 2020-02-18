@@ -11,17 +11,38 @@ class App extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      talkingTo: 'Friend1',
+      talkingTo: { id: 'friend1', name: 'Friend1' },
       textInput: '',
-      friends: ['Friend1', 'Friend2', 'Friend3', 'NotFriend4'],
+      friends: [
+        {
+          id: 'friend1',
+          name: 'Friend1'
+        },
+        {
+          id: 'friend2',
+          name: 'Friend2'
+        },
+        {
+          id: 'friend3',
+          name: 'Friend3'
+        },
+        {
+          id: 'friend5',
+          name: 'Friend3'
+        },
+        {
+          id: 'notfriend4',
+          name: 'NotFriend4'
+        }
+      ],
       history: [
-        ['Friend1', 'User', 'Are you going tonight?'],
-        ['Friend2', 'User', 'Morning, how are you?'],
-        ['NotFriend4', 'User', 'Who dis?'],
-        ['Friend3', 'User', 'Hi'],
-        ['Friend3', 'User', 'Sure'],
-        ['Friend3', 'User', 'But I will be late'],
-        ['Friend1', 'User', 'Hey, are you there?']
+        { from: 'friend1', to: 'User', message: 'Are you going tonight?' },
+        { from: 'friend2', to: 'User', message: 'Morning, how are you?' },
+        { from: 'notfriend4', to: 'User', message: 'Are you going tonight?' },
+        { from: 'friend5', to: 'User', message: 'Are you?' },
+        { from: 'friend5', to: 'User', message: 'Are you going tonight?' },
+        { from: 'friend3', to: 'User', message: 'Are you going tonight?' },
+        { from: 'friend1', to: 'User', message: 'Are you going tonight?' }
       ]
     }
   }
@@ -40,7 +61,7 @@ class App extends PureComponent {
         ...state,
         history: [
           ...state.history,
-          ['User', state.talkingTo, state.textInput]
+          { from: 'User', to: state.talkingTo.id, message: state.textInput }
         ]
       }
       return newState

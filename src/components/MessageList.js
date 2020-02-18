@@ -3,16 +3,16 @@ import React from 'react'
 const MessageList = ({ messages, friend }) => {
   return (
     <div className='tile is-child box'>
-      <p className='title'>Conversation with {friend}</p>
+      <p className='title'>Conversation with {friend.name}</p>
       {messages
         .filter(
           message =>
-            (message[0] === friend && message[1] === 'User') ||
-            (message[0] === 'User' && message[1] === friend)
+            (message.from === friend.id && message.to === 'User') ||
+            (message.from === 'User' && message.to === friend.id)
         )
         .map(message => (
           <p key={Math.random()}>
-            <b>{message[0]}</b>: {message[2]}
+            <b>{message.from}</b>: {message.message}
           </p>
         ))}
     </div>

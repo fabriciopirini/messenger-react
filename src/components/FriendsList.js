@@ -6,7 +6,7 @@ const FriendsList = ({ friends, handleFriendChange }) => {
       <div className='tile is-child box'>
         <p className='title'>Contacts</p>
         {friends.map(friend => (
-          <div className='card has-margin-bottom-5' key={friend} onClick={() => handleFriendChange(friend)}>
+          <div className='card has-margin-bottom-5' key={friend.id} onClick={() => handleFriendChange(friend)}>
             <div className='card-content'>
               <div className='media'>
                 <div className='media-left'>
@@ -18,8 +18,8 @@ const FriendsList = ({ friends, handleFriendChange }) => {
                   </figure>
                 </div>
                 <div className='media-content'>
-                  <p className='title is-5'>{friend}</p>
-                  <p className='subtitle is-6'>@{friend.toLowerCase()}</p>
+                  <p className='title is-5'>{friend.name}</p>
+                  <p className='subtitle is-6'>@{friend.id}</p>
                 </div>
               </div>
             </div>
